@@ -135,27 +135,69 @@ Responsibilities of ListingProvider:
 
 UI widgets subscribe to changes using:
 
-```dart
+``dart
 context.watch<ListingProvider>()
 
 **### Project Architecture**
-lib/
- ├── models/
- ├── services/
- ├── providers/
- ├── screens/
- │    ├── auth/
- │    ├── home/
- └── main.dart
-models → Data representation classes
+                 ┌──────────────────────────────┐
+                 │        Flutter UI Layer      │
+                 │                              │
+                 │  Login Screen                │
+                 │  Sign Up Screen              │
+                 │  Directory Screen            │
+                 │  My Listings Screen          │
+                 │  Detail Screen (Map)         │
+                 │  Settings Screen             │
+                 └───────────────▲──────────────┘
+                                 │
+                                 │ UI listens to state
+                                 │
+                 ┌───────────────┴──────────────┐
+                 │     State Management Layer    │
+                 │           Provider            │
+                 │                               │
+                 │        ListingProvider        │
+                 │  - listenToListings()         │
+                 │  - addListing()               │
+                 │  - deleteListing()            │
+                 │  - search & filtering         │
+                 └───────────────▲──────────────┘
+                                 │
+                                 │ business logic
+                                 │
+                 ┌───────────────┴──────────────┐
+                 │         Service Layer         │
+                 │                               │
+                 │        AuthService            │
+                 │  - signUp()                   │
+                 │  - login()                    │
+                 │  - logout()                   │
+                 │                               │
+                 └───────────────▲──────────────┘
+                                 │
+                                 │ Firebase SDK
+                                 │
+        ┌────────────────────────┴────────────────────────┐
+        │                 Firebase Backend                  │
+        │                                                   │
+        │   Firebase Authentication                         │
+        │   - User signup / login                           │
+        │   - Email verification                            │
+        │                                                   │
+        │   Cloud Firestore                                 │
+        │   - users collection                              │
+        │   - listings collection                           │
+        │                                                   │
+        └───────────────────────────────────────────────────┘
 
-services → Firebase authentication logic
 
-providers → Firestore and state management logic
-
-screens → UI components
-
-This structure improves maintainability and scalability.
+                     ┌─────────────────────────┐
+                     │   Google Maps Platform  │
+                     │                         │
+                     │  GoogleMap Widget      │
+                     │  Map Marker            │
+                     │  Navigation Directions │
+                     └─────────────────────────┘
 
 **Technologies Used**
 
@@ -180,5 +222,7 @@ Add your google-services.json file inside android/app
 Add your Google Maps API key inside AndroidManifest.xml
 
 **Run:**
+
+
 flutter pub get
 flutter run
