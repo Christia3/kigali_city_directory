@@ -135,8 +135,9 @@ Responsibilities of ListingProvider:
 
 UI widgets subscribe to changes using:
 
-```dart
+``dart
 context.watch<ListingProvider>()
+```
 
 **### Project Architecture**
                  ┌──────────────────────────────┐
