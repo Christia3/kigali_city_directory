@@ -9,7 +9,7 @@ class AuthService {
 
   Stream<User?> get authState => _auth.authStateChanges();
 
-  // ================= SIGN UP =================
+  //  SIGN UP METHOD
   Future<User?> signUp(String email, String password) async {
     try {
       final cred = await _auth.createUserWithEmailAndPassword(
@@ -39,7 +39,7 @@ class AuthService {
     }
   }
 
-  // ================= LOGIN =================
+  // LOGIN METHOD
   Future<User?> login(String email, String password) async {
     try {
       final cred = await _auth.signInWithEmailAndPassword(
@@ -55,12 +55,12 @@ class AuthService {
     }
   }
 
-  // ================= RESEND EMAIL =================
+  //  RESEND VERIFICATION EMAIL METHOD
   Future<void> resendVerificationEmail() async {
     await _auth.currentUser?.sendEmailVerification();
   }
 
-  // ================= LOGOUT =================
+  //  LOGOUT METHOD
   Future<void> logout() async {
     await _auth.signOut();
   }

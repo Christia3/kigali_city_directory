@@ -74,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-/* ================= DIRECTORY TAB ================= */
+/*  DIRECTORY TAB  */
 
 class DirectoryTab extends StatelessWidget {
   const DirectoryTab({super.key});
@@ -86,7 +86,7 @@ class DirectoryTab extends StatelessWidget {
 
     return Column(
       children: [
-        // 🔍 Search bar
+        //  Search bar
         Padding(
           padding: const EdgeInsets.all(10),
           child: TextField(
@@ -101,7 +101,7 @@ class DirectoryTab extends StatelessWidget {
           ),
         ),
 
-        // 🏷 Category filter
+        //  Category filter
         SizedBox(
           height: 50,
           child: ListView(
@@ -119,7 +119,7 @@ class DirectoryTab extends StatelessWidget {
 
         const SizedBox(height: 10),
 
-        // 📋 Listings
+        //  Listings
         Expanded(
           child: listings.isEmpty
               ? const Center(child: Text("No results found"))
@@ -160,7 +160,7 @@ class DirectoryTab extends StatelessWidget {
   }
 }
 
-/* ================= MY LISTINGS TAB ================= */
+/*  MY LISTINGS TAB  */
 
 class MyListingsTab extends StatelessWidget {
   const MyListingsTab({super.key});
@@ -200,7 +200,7 @@ class MyListingsTab extends StatelessWidget {
   }
 }
 
-/* ================= MAP TAB ================= */
+/*  MAP TAB  */
 
 class MapTab extends StatelessWidget {
   const MapTab({super.key});
@@ -211,7 +211,7 @@ class MapTab extends StatelessWidget {
   }
 }
 
-/* ================= SETTINGS TAB ================= */
+/*  SETTINGS TAB  */
 
 class SettingsTab extends StatelessWidget {
   const SettingsTab({super.key});

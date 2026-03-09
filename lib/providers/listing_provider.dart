@@ -10,7 +10,7 @@ class ListingProvider extends ChangeNotifier {
   List<ListingModel> _listings = [];
   List<ListingModel> get listings => _listings;
 
-  // 🔍 SEARCH + FILTER VARIABLES
+ 
   String _searchQuery = "";
   String _selectedCategory = "All";
 
@@ -27,7 +27,7 @@ class ListingProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // 🔵 LISTEN TO FIRESTORE REAL TIME
+  //  LISTEN TO FIRESTORE REAL TIME
   void listenToListings() {
     _db
         .collection('listings')
@@ -40,7 +40,7 @@ class ListingProvider extends ChangeNotifier {
     });
   }
 
-  // 🟢 ADD LISTING
+  //  ADD LISTING
   Future<void> addListing({
     required String name,
     required String category,
@@ -63,12 +63,12 @@ class ListingProvider extends ChangeNotifier {
     });
   }
 
-  // 🔴 DELETE LISTING
+  //  DELETE LISTING
   Future<void> deleteListing(String id) async {
     await _db.collection('listings').doc(id).delete();
   }
 
-  // 🎯 FILTERED LIST FOR DIRECTORY
+  //  FILTERED LIST FOR DIRECTORY
   List<ListingModel> get filteredListings {
     return _listings.where((item) {
       final matchesSearch =

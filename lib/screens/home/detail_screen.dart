@@ -17,7 +17,7 @@ class DetailScreen extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 📍 GOOGLE MAP
+          //  GOOGLE MAP
           SizedBox(
             height: 250,
             width: double.infinity,
@@ -52,7 +52,7 @@ class DetailScreen extends StatelessWidget {
                 Text(listing.description),
                 const SizedBox(height: 20),
 
-                // 🗺 OPEN GOOGLE MAPS NAVIGATION
+                //  OPEN GOOGLE MAPS NAVIGATION
                 ElevatedButton.icon(
                   onPressed: () async {
                     final url =
